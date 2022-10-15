@@ -1,22 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : Entity
 {
     [Header("Player Properties")]
     public float moveSpeed = 10.0f;
     public Boundary boundary;
     public float veritcalPos;
-    public float veritcalSpeed = 10.0f;
     public bool usingMobileInput = false;
 
-    [Header("Bullet Properties")]
-    public Transform bulletSpawnPoint;
-    public float fireRate = 0.2f;
-
-    private BulletManager bulletManager;
     private ScoreManager scoreManager;
     private Camera camera;
 
@@ -53,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    public void Move()
+    public override void Move()
     {
         float clampedPosition = Mathf.Clamp(transform.position.x, boundary.min, boundary.max);
         transform.position = new Vector2(clampedPosition, veritcalPos);
@@ -64,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
         foreach (var touch in Input.touches)
         {
             var destination = camera.ScreenToWorldPoint(touch.position);
-            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * veritcalSpeed);
+            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * verticalSpeed);
         }
     }
 
@@ -79,7 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
         //}
     }
 
-    void FireBullets()
+    public override void FireBullets()
     {
         var bullets = bulletManager.GetBullet(bulletSpawnPoint.position, BulletType.PLAYER);
     }

@@ -2,20 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyBehaviour : Entity
 {
     public Boundary horizontalBoundary;
     public Boundary verticalBoundary;
     public Boundary screenBounds;
     public float horizontalSpeed;
-    public float verticalSpeed;
     public Color randomColor;
 
-    [Header("Bullet Properties")]
-    public Transform bulletSpawnPoint;
-    public float fireRate = 0.2f;
-
-    private BulletManager bulletManager;
     private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -34,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
         CheckBounds();
     }
 
-    void Move()
+    public override void Move()
     {
         var horizontallLength = horizontalBoundary.max - horizontalBoundary.min;
         transform.position = new Vector3(Mathf.PingPong(Time.time * horizontalSpeed, horizontallLength) - horizontalBoundary.max, 
@@ -62,7 +56,7 @@ public class EnemyBehaviour : MonoBehaviour
         spriteRenderer.material.SetColor("_Color", RandomColor);
     }
 
-    void FireBullets()
+    public override void FireBullets()
     {
         var bullets = bulletManager.GetBullet(bulletSpawnPoint.position, BulletType.ENEMY);
     }
