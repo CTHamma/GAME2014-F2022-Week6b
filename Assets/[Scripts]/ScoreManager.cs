@@ -7,12 +7,13 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text scoreLabel;
-    public int score = 0;
+    private TMP_Text scoreLabel;
+    private int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        scoreLabel = GameObject.Find("ScoreLabel").GetComponent<TMP_Text>();
         SetScore(0);
     }
 

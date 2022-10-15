@@ -40,12 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3372169470572015735}
+  - component: {fileID: -8513251983419611784}
   - component: {fileID: 3372169470572015734}
   - component: {fileID: 4320089170772848175}
   - component: {fileID: 3372169470572015737}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,8 +65,29 @@ Transform:
   m_Children:
   - {fileID: 650835022}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &-8513251983419611784
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372169470572015736}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &3372169470572015734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -128,7 +150,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -143,23 +165,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.031030603, y: 0.14}
-      - {x: -0.06785095, y: 0.1116118}
-      - {x: -0.08760829, y: 0.07994802}
-      - {x: -0.23701526, y: -0.032336794}
-      - {x: -0.23672704, y: -0.06542473}
-      - {x: -0.2220269, y: -0.073850706}
-      - {x: -0.13928676, y: -0.033085354}
-      - {x: -0.073832855, y: -0.10687075}
-      - {x: -0.048510544, y: -0.107874155}
-      - {x: -0.048516743, y: -0.14528029}
-      - {x: 0.036132775, y: -0.14412193}
-      - {x: 0.039330967, y: -0.10770337}
-      - {x: 0.06075892, y: -0.10972829}
-      - {x: 0.13263819, y: -0.033035837}
-      - {x: 0.23009056, y: -0.06905997}
-      - {x: 0.23569643, y: -0.041483458}
-      - {x: 0.022061206, y: 0.14112118}
+    - - {x: -0.04486867, y: 0.28529966}
+      - {x: -0.051706553, y: 0.27536225}
+      - {x: -0.13604152, y: 0.22294138}
+      - {x: -0.1447615, y: 0.17754051}
+      - {x: -0.46274877, y: -0.053893015}
+      - {x: -0.4688057, y: -0.14073467}
+      - {x: -0.27997378, y: -0.06768051}
+      - {x: -0.14994222, y: -0.21065626}
+      - {x: -0.09463743, y: -0.21857867}
+      - {x: -0.10156267, y: -0.2859673}
+      - {x: 0.07764696, y: -0.28711528}
+      - {x: 0.07623247, y: -0.21840788}
+      - {x: 0.123030186, y: -0.21582012}
+      - {x: 0.27101886, y: -0.06532467}
+      - {x: 0.4584186, y: -0.14286299}
+      - {x: 0.47324985, y: -0.08530401}
+      - {x: 0.03589926, y: 0.28642085}
   m_UseDelaunayMesh: 0
 --- !u!114 &3372169470572015737
 MonoBehaviour:
@@ -180,8 +202,5 @@ MonoBehaviour:
   veritcalPos: -4
   veritcalSpeed: 10
   usingMobileInput: 1
-  scoreManager: {fileID: 0}
   bulletSpawnPoint: {fileID: 650835022}
-  bulletPrefab: {fileID: 0}
   fireRate: 0.2
-  bulletParent: {fileID: 0}

@@ -11,13 +11,13 @@ public class PlayerBehaviour : MonoBehaviour
     public float veritcalPos;
     public float veritcalSpeed = 10.0f;
     public bool usingMobileInput = false;
-    public ScoreManager scoreManager;
 
     [Header("Bullet Properties")]
     public Transform bulletSpawnPoint;
     public float fireRate = 0.2f;
-    public BulletManager bulletManager;
 
+    private BulletManager bulletManager;
+    private ScoreManager scoreManager;
     private Camera camera;
 
     private void Start()
@@ -81,6 +81,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FireBullets()
     {
-        var bullets = bulletManager.GetBullet(bulletSpawnPoint.position, BulletDirection.UP);
+        var bullets = bulletManager.GetBullet(bulletSpawnPoint.position, BulletType.PLAYER);
     }
 }
